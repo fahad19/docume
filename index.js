@@ -22,11 +22,12 @@ module.exports = {
 			return true;
 		});
 
+		var updated = content;
 		sources.forEach(function (source) {
 			var sourceDoc = self.getSourceDoc(source);
-			var start = '<!--docco:' + source + '-->';
-			var end = '<!--/docco:' + source + '-->';
-			var updated = updateSection(content, [
+			var start = '<!--docume:' + source + '-->';
+			var end = '<!--/docume:' + source + '-->';
+			var updated = updateSection(updated, [
 				start,
 				sourceDoc,
 				end
@@ -36,6 +37,10 @@ module.exports = {
 				return line.indexOf(end) === 0;
 			});
 			return updated;
+		});
+
+		return fs.writeFileSync(file, updated, {
+			encoding: 'utf-8'
 		});
 	},
 
