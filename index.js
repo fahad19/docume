@@ -27,7 +27,7 @@ module.exports = {
 			var sourceDoc = self.getSourceDoc(source);
 			var start = '<!--docume:' + source + '-->';
 			var end = '<!--/docume:' + source + '-->';
-			var updated = updateSection(updated, [
+			updated = updateSection(updated, [
 				start,
 				sourceDoc,
 				end
@@ -39,9 +39,7 @@ module.exports = {
 			return updated;
 		});
 
-		return fs.writeFileSync(file, updated, {
-			encoding: 'utf-8'
-		});
+		return fs.writeFileSync(file, updated);
 	},
 
 	getSourceFromComment: function (comment) {
