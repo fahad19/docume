@@ -58,7 +58,10 @@ module.exports = {
 		content.split('\n').forEach(function (line) {
 			if (line.indexOf('//') === 0) {
 				var doc = line.substr(2);
-				lines.push(doc.trim());
+				if (doc.substr(0, 1) === ' ') {
+					doc = doc.substr(1);
+				}
+				lines.push(doc);
 			}
 		});
 
