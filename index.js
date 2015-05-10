@@ -16,6 +16,10 @@ module.exports = {
 		lines.forEach(function (line) {
 			if (line.indexOf('<!--docume:') === 0) {
 				var sourceFile = self.getSourceFromComment(line);
+				if (!fs.existsSync(sourceFile)) {
+					return true;
+				}
+
 				sources.push(sourceFile);
 			}
 
