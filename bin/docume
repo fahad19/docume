@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+'use strict';
+
+// # Usage
+//
+// Put some placeholders in your README file first:
+//
+// ```
+// # My README
+//
+// Some line here...
+//
+// <!--doccome:path/to/source.js-->
+// <!--/doccome:path/to/source.js-->
+// ```
+//
+// Now run the command:
+//
+// ```
+// $ doccome README.md
+// ```
+//
+
+var args = process.argv.slice(2);
+if (args.length === 0) {
+	console.log('You need to pass README path as first argument.');
+	return;
+}
+
+var lib = require('../');
+lib.process(args[0]);
