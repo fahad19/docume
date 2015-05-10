@@ -1,5 +1,7 @@
 # DocuMe
 
+[![Build Status](https://secure.travis-ci.org/fahad19/docume.png?branch=master)](http://travis-ci.org/fahad19/docume)
+
 Generate documentation in README from source files.
 
 ## Install
